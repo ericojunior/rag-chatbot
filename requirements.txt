@@ -1,0 +1,17 @@
+streamlit>=1.35,<2
+python-dotenv>=1,<2
+
+# PDF
+pdfplumber>=0.10.4,<1
+pypdf>=3.17,<5
+
+# Embeddings e busca semântica
+sentence-transformers>=2.6,<3
+numpy>=2,<3
+scikit-learn>=1.4,<2
+
+# LLM (opcional)
+openai>=1.30,<2
+
+# Testes
+pytest>=8,<9

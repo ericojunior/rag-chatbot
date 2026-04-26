@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+.pytest_cache/
+.streamlit/
+.DS_Store
+
+# env
+.env
+
+# caches
+*.log
+*.tmp
+
