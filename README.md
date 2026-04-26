@@ -63,3 +63,12 @@ rag-chatbot/
 ```bash
 pytest -q
 ```
+
+---
+
+## Autor
+
+**Érico Júnior de Morais**  
+*Projeto desenvolvido para o MBA em Engenharia de Software com Inteligência Artificial*  
+*CEIA - UFG - GOIÁS - BRASIL*
+**Abril de 2026**
