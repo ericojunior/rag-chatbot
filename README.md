@@ -33,15 +33,27 @@ Abra o link que o Streamlit mostrar, faça upload de um PDF e pergunte.
 
 ## Configuração (opcional: LLM)
 
-Crie um arquivo `.env` (veja `.env.example`):
+Crie um arquivo `.env` (veja `.env.example`).
+
+### DeepSeek (recomendado)
 
 ```env
-OPENAI_API_KEY=...
-OPENAI_MODEL=gpt-4o-mini
-# OPENAI_BASE_URL=https://api.openai.com/v1
+LLM_PROVIDER=deepseek
+LLM_API_KEY=SEU_TOKEN_AQUI
+LLM_BASE_URL=https://api.deepseek.com/v1
+LLM_MODEL=deepseek-chat
 ```
 
-Se **não** houver chave, o app entra em modo *fallback* e retorna os trechos mais relevantes do PDF (com páginas), sem gerar texto por LLM.
+### OpenAI (alternativa)
+
+```env
+LLM_PROVIDER=openai
+LLM_API_KEY=SEU_TOKEN_AQUI
+LLM_BASE_URL=https://api.openai.com/v1
+LLM_MODEL=gpt-4o-mini
+```
+
+Se **não** houver API key, o app entra em modo *fallback* e retorna os trechos mais relevantes do PDF (com páginas), sem gerar texto por LLM.
 
 ## Estrutura
 

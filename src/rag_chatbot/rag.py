@@ -6,7 +6,7 @@ from functools import lru_cache
 import numpy as np
 
 from .index import VectorIndex
-from .llm import fallback_answer, generate_with_openai, has_openai_key
+from .llm import fallback_answer, generate_answer, has_llm
 from .retrieval import retrieve
 
 
@@ -33,8 +33,8 @@ def answer_question(index: VectorIndex, question: str, *, top_k: int = 5) -> Dic
     ]
     contexts = [s["text"] for s in sources]
 
-    if has_openai_key():
-        answer = generate_with_openai(question=question, contexts=contexts)
+    if has_llm():
+        answer = generate_answer(question=question, contexts=contexts)
     else:
         answer = fallback_answer(question=question, contexts=contexts)
 

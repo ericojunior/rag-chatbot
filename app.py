@@ -30,9 +30,16 @@ with st.sidebar:
     top_k = st.slider("Top-K trechos recuperados", 1, 10, 5, 1)
     st.divider()
     st.subheader("LLM (opcional)")
-    has_key = bool(os.getenv("OPENAI_API_KEY"))
-    st.write("OPENAI_API_KEY:", "✅ configurada" if has_key else "❌ não configurada (modo fallback)")
-    st.write("OPENAI_MODEL:", os.getenv("OPENAI_MODEL", "gpt-4o-mini"))
+    provider = (os.getenv("LLM_PROVIDER") or ("openai" if os.getenv("OPENAI_API_KEY") else "")).strip() or "—"
+    has_key = bool(os.getenv("LLM_API_KEY") or os.getenv("DEEPSEEK_API_KEY") or os.getenv("OPENAI_API_KEY"))
+    model = (
+        os.getenv("LLM_MODEL")
+        or os.getenv("OPENAI_MODEL")
+        or ("deepseek-chat" if provider == "deepseek" else "gpt-4o-mini")
+    )
+    st.write("Provedor:", provider)
+    st.write("API key:", "✅ configurada" if has_key else "❌ não configurada (modo fallback)")
+    st.write("Modelo:", model)
 
 
 uploaded = st.file_uploader("Envie um PDF", type=["pdf"])
